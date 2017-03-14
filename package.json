@@ -33,12 +33,14 @@
   },
   "cordovaPlugins": [
     "ionic-plugin-keyboard",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-console"
+    "cordova-plugin-bluetooth-serial"
   ],
-  "cordovaPlatforms": [],
+  "cordovaPlatforms": [
+  ],
   "description": "Aplicacion hibrida Ionic/Cordova para comunicarse por bluetooth con un arduino."
 }
