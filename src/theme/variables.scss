@@ -30,6 +30,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
 
+  ionduino_primary: #198ccd,
+
   teal:     #00878F,
   teal_Light: #62AEB2,
   orange:   #E47128,
@@ -82,3 +84,6 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$modal-inset-width:     90%;
+$modal-inset-min-width: 360px;

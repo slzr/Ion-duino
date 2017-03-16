@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -6,17 +7,23 @@ import { BluetoothSerial } from 'ionic-native';
 
 @Injectable()
 export class BluetoothService {
+  public connectedDevice: Observable<any>;
+
 
   constructor(public http: Http) {
-    console.log('Hello BluetoothService Provider');
   }
 
+  isEnabled(){
+    return BluetoothSerial.isEnabled();
+  }
 
-  getDevices(){
+  listDevices(){
     return BluetoothSerial.list()
-    // return new Promise(( resolve, reject ) => {
-    //   BluetoothSerial.list(resolve, reject);
-    // });
   }
+
+  connect(deviceAddress, insecure = true) {
+    return BluetoothSerial.connectInsecure( deviceAddress );
+  }
+
 
 }

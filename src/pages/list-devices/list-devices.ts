@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { BluetoothService } from '../../providers/bluetooth-service';
 
@@ -9,20 +9,32 @@ import { BluetoothService } from '../../providers/bluetooth-service';
 
 })
 export class ListDevicesPage {
-  public dispositivos: Array<any>;
+  public devices: Array<any>;
 
   constructor(
+    public viewCtrl: ViewController,
     public navCtrl: NavController,
     public navParams: NavParams,
     public bs: BluetoothService
   ) {
+    this.devices = [ ];
 
   }
 
   ionViewDidLoad() {
-    this.bs.getDevices().then(()=>{
-      
-    })   ;
+    this.bs.listDevices()
+    .then( (devices) => {
+      this.devices = devices;
+    }).catch( (err) => {
+      console.log( err );
+    });
+  }
+
+  connectTo(device) {
+    this.bs.connect( device ).subscribe( data => {
+      alert(data);
+      console.log(data);
+    });
   }
 
 }

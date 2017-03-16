@@ -40,7 +40,6 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-bluetooth-serial"
   ],
-  "cordovaPlatforms": [
-  ],
+  "cordovaPlatforms": [],
   "description": "Aplicacion hibrida Ionic/Cordova para comunicarse por bluetooth con un arduino."
 }

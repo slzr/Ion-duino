@@ -1,5 +1,11 @@
 <ion-header>
   <ion-navbar color="teal">
+
+    <ion-buttons start>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Lista de Dispositivos</ion-title>
   
     <ion-buttons end>
@@ -13,6 +19,16 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item *ngFor="let d of devices" (click)="connectTo(d.address)">
+      <ion-avatar item-left>
+        <img src="assets/images/bluetooth.png">
+      </ion-avatar>
+      <h2>{{ d.name }}</h2>
+      <p>{{ d.address }}</p>
+    </ion-item>
+
+  </ion-list>
 
   <button ion-button color="danger">Desconectar</button>
 </ion-content>
